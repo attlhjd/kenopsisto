@@ -27,6 +27,41 @@ Route::get('/llllllllllllllllllllllllllllllll', function () {
     return view('home');
 })->name('old_home');
 
+Route::get('/wormholes', function () {
+    return view('wormhole');
+})->name('wormholes');
+
+Route::get('/skinwalker', function () {
+    return view('skinwalker');
+})->name('skinwalker');
+
+Route::get('/milk', function () {
+    return view('milk_restart');
+})->name('milk');
+
+Route::get('/house', function () {
+    return view('house');
+})->name('house');
+
+Route::get('/fataorgana', function () {
+    return view('fataorgana');
+})->name('fataorgana');
+
+Route::get('/exulansis', function () {
+    return view('exulansis');
+})->name('exulansis');
+
+Route::get('/files', function () {
+    return view('files');
+})->name('files');
+
+Route::get('/audio', function () {
+    return view('audio');
+})->name('audio');
+
+Route::get('/doc_txt', function () {
+    return view('doc_txt');
+})->name('doc_txt');
 
 
 

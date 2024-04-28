@@ -3,6 +3,7 @@
     <body class="antialiased text-white bg-home bg-auto bg-no-repeat bg-black flex h-screen">
 
     <main class="text-black bg-white m-auto mt-20 rounded-bl-[63px] rounded-tr-[63px]" style="width: 1239px; height: 1650px;">
+
         <header class="p-6">
             <img src="{{ url('/images/titre.png') }}" class="invert " style="height: 90px; width: 360px;" alt="Kenopsis">
         </header>
