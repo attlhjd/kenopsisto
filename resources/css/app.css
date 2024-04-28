@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'FortySeven Micro NBP';
+    src: url('/fonts/47micro0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FortySeven NBP';
+    src: url('/fonts/47micro0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Whyte';
+    src: url('/fonts/Whyte-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueBit';
+    src: url('/fonts/NeueBit-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
