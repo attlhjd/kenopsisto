@@ -53,6 +53,7 @@
             paragraphs.forEach(paragraph => {
                 let words = paragraph.textContent.split(' ');
                 let indicesReplaced = new Set();  // Pour suivre les indices déjà remplacés
+                let timeoutDuration = 6000;
 
                 function replaceWord() {
                     if (indicesReplaced.size < words.length) {
@@ -66,7 +67,8 @@
 
                         paragraph.innerHTML = words.join(' ');  // Mettre à jour le HTML du paragraphe
 
-                        setTimeout(replaceWord, 100);  // Répéter jusqu'à ce que tous les mots soient remplacés
+                        setTimeout(replaceWord, timeoutDuration);
+                        timeoutDuration /= 2;// Répéter jusqu'à ce que tous les mots soient remplacés
                     }
                 }
 
