@@ -63,6 +63,19 @@ Route::get('/doc_txt', function () {
     return view('doc_txt');
 })->name('doc_txt');
 
+Route::get('/virus', function () {
+    return view('virus');
+})->name('virus');
+
+Route::get('/congrats', function () {
+    return view('congrats');
+})->name('congrats');
+
+Route::get('/sword', function () {
+    return view('sword');
+})->name('sword');
+
+
 
 
 require __DIR__.'/kenopsis.php';

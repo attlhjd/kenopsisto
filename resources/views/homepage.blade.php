@@ -7,7 +7,7 @@
         </a>
     </div>
     <div>
-        <a href="">
+        <a href="{{ route('fataorgana') }}">
             <img class="flex" src="{{asset('home/silhouette.png')}}" alt="titre">
         </a>
     </div>
@@ -22,7 +22,7 @@
         </a>
     </div>
     <div>
-        <a href="">
+        <a href="{{ route('exulansis') }}">
             <img class="flex" src="{{asset('home/ORDI.png')}}" alt="titre">
         </a>
     </div>

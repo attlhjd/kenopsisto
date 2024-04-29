@@ -5,14 +5,14 @@
     <!-- Top-left group of images -->
     <div class="flex-1 grid grid-cols-5 ml-[20px] mt-[60px] ">
         <div class="grid grid-cols-3 gap-2">
-            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" alt="dossier clos">
-            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" alt="dossier clos">
-            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" alt="dossier clos">
-            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" alt="dossier clos">
-            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" alt="dossier clos">
-            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" alt="dossier clos">
+            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" style="width: 111px;height: 111px;flex-shrink: 0;" alt="dossier clos">
+            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" style="width: 111px;height: 111px;flex-shrink: 0;" alt="dossier clos">
+            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" style="width: 111px;height: 111px;flex-shrink: 0;" alt="dossier clos">
+            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" style="width: 111px;height: 111px;flex-shrink: 0;"alt="dossier clos">
+            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" style="width: 111px;height: 111px;flex-shrink: 0;" alt="dossier clos">
+            <img src="{{asset('exulansist/directory_closed-4 copie.png')}}" style="width: 111px;height: 111px;flex-shrink: 0;" alt="dossier clos">
             <a href="{{ route('files') }}">
-            <img src="{{asset('exulansist/directory_open_file_mydocs-4 copie.png')}}" alt="dossier ouvert">
+            <img src="{{asset('exulansist/directory_open_file_mydocs-4 copie.png')}}" style="width: 111px;height: 111px;flex-shrink: 0;" alt="dossier ouvert">
             </a>
         </div>
     </div>
@@ -24,13 +24,13 @@
         <div class="mr-[20px] mb-[20px] grid grid-cols-2 gap-2">
             <div></div>
             <a href="">
-            <img src="{{asset('exulansist/file_win_shortcut-2 copie.png')}}" alt="file win shortcut">
+            <img src="{{asset('exulansist/file_win_shortcut-2 copie.png')}}"  style="width: 111px;height: 111px;flex-shrink: 0;" alt="file win shortcut">
             </a>
             <a href="">
-            <img src="{{asset('exulansist/notepad_file-2 copie.png')}}" alt="notepad file">
+            <img src="{{asset('exulansist/notepad_file-2 copie.png')}}" style="width: 111px;height: 111px;flex-shrink: 0;" alt="notepad file">
             </a>
             <a href="{{ route('audio') }}">
-            <img src="{{asset('exulansist/wm_file-_4.png')}}" alt="wm file">
+            <img src="{{asset('exulansist/wm_file-_4.png')}}" style="width: 111px;height: 111px;flex-shrink: 0;" alt="wm file">
             </a>
         </div>
     </div>

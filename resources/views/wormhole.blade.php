@@ -14,48 +14,88 @@
     </style>
     <body class="bg-black">
     <a href="/homepage" class="text-white font-fortyseven-micro underline underline-offset-4 cursor-pointer absolute top-0 left-0">home</a>
-    <div id="popup" class="popup" style="display:none;">
-        <img id="popup-img" src="" alt="Image Aléatoire">
-        <button onclick="closePopup()">Fermer</button>
-    </div>
 
-    <button onclick="showRandomImage()">Afficher une Image Aléatoire</button>
+    <button onclick="createRandomImagePopup()">Afficher une Image Aléatoire</button>
 
     <script>
-            var imagePaths = [
+        var regularImagePaths = [
             @for ($i = 5; $i <= 46; $i++)
-            "{{ asset("wormhole/Fichier {$i}fleche.png") }}",
+                @if (!in_array($i, [19, 25, 42, 45, 40,8,12]))
+                "{{ asset('wormhole/Fichier ' . $i . 'fleche.png') }}",
+            @endif
             @endfor
-            ];
+        ];
 
-            document.addEventListener('DOMContentLoaded', function() {
-                setInterval(createRandomImagePopup, 2000);
-            });
+        var specialImagesInfo = [
+            { path: "{{ asset('wormhole/Fichier 40fleche.png') }}", route: "/sword" },
+            { path: "{{ asset('wormhole/Fichier 8fleche.png') }}", route: "/congrats" },
+            { path: "{{ asset('wormhole/Fichier 12fleche.png') }}", route: "/virus" }
+        ];
 
-            function createRandomImagePopup() {
-                var randomIndex = Math.floor(Math.random() * imagePaths.length);
-                var imagePath = imagePaths[randomIndex];
-                var randomX = Math.floor(Math.random() * (window.innerWidth - 200));
-                var randomY = Math.floor(Math.random() * (window.innerHeight - 200));
+        var allRoutes = ["/sword", "/congrats", "/virus"]; // All possible routes
 
-                var popup = document.createElement('div');
-                popup.className = 'popup';
-                popup.style.left = `${randomX}px`;
-                popup.style.top = `${randomY}px`;
+        var currentDelay = 2000; // Initial delay for popups
 
-                var img = document.createElement('img');
-                img.src = imagePath;
-                img.style.width = '100%';
-                img.style.height = 'auto';
-                img.onclick = function() {
-                    popup.remove();
-                };
+        function scheduleNextPopup() {
+            setTimeout(function() {
+                if (regularImagePaths.length > 0) {
+                    createRandomImagePopup(regularImagePaths);
+                    scheduleNextPopup();
+                } else if (specialImagesInfo.length > 0) {
+                    const imageInfo = specialImagesInfo.shift();
+                    displayPopup(imageInfo.path, imageInfo);
+                    currentDelay /= 2;  // Update delay for next special image
+                    scheduleNextPopup();
+                } else {
+                    redirectToRandomRoute();
+                }
+            }, currentDelay);
+        }
 
-                popup.appendChild(img);
-                document.body.appendChild(popup);
+        document.addEventListener('DOMContentLoaded', function() {
+            scheduleNextPopup();
+        });
+
+        function createRandomImagePopup(paths) {
+            var randomIndex = Math.floor(Math.random() * paths.length);
+            var imagePath = paths.splice(randomIndex, 1)[0];
+            displayPopup(imagePath);
+        }
+
+        function displayPopup(imagePath, imageInfo = null) {
+            var randomX = Math.floor(Math.random() * (window.innerWidth - 200));
+            var randomY = Math.floor(Math.random() * (window.innerHeight - 200));
+
+            var popup = document.createElement('div');
+            popup.className = 'popup';
+            popup.style.left = `${randomX}px`;
+            popup.style.top = `${randomY}px`;
+
+            var img = document.createElement('img');
+            img.src = imagePath;
+            img.style.width = '100%';
+            img.style.height = 'auto';
+
+            img.onclick = function() {
+                popup.remove();
+                if (imageInfo && imageInfo.route) {
+                    window.location.href = imageInfo.route;
+                }
+            };
+
+            popup.appendChild(img);
+            document.body.appendChild(popup);
+
+            if (imageInfo) {
+                setTimeout(function() {
+                    popup.style.transform = "scale(2)"; // Double the size over 10 minutes
+                }, 600000); // 10 minutes
             }
-
+        }
+        function redirectToRandomRoute() {
+            var randomRouteIndex = Math.floor(Math.random() * allRoutes.length);
+            window.location.href = allRoutes[randomRouteIndex];
+        }
     </script>
     </body>
-
 </x-base-layout>

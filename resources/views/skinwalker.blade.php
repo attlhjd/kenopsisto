@@ -16,7 +16,7 @@
             gap: 10px; /* Espace entre les images */
         }
         .footer-text {
-            margin-top: 300px; /* Espace entre le div des images et le texte */
+            margin-top: 170px; /* Espace entre le div des images et le texte */
             color: white; /* Couleur du texte */
             text-align: center;
             color: #FFF;
@@ -29,7 +29,7 @@
     </style>
     <body class="bg-black h-screen">
     <a href="/homepage" class="text-white font-fortyseven-micro underline underline-offset-4 cursor-pointer absolute top-0 left-0">home</a>
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-3 place-items-center mt-20">
         <img src="{{ asset('skinwalkers/brique def.png') }}" class="hover-image" data-hover="{{ asset('skinwalkers/Fichier 5fleche.png') }}">
         <img src="{{ asset('skinwalkers/brique def.png') }}" class="hover-image" data-hover="{{ asset('skinwalkers/Fichier 5fleche.png') }}">
         <img src="{{ asset('skinwalkers/brique def.png') }}" class="hover-image" data-hover="{{ asset('skinwalkers/Fichier 5fleche.png') }}">

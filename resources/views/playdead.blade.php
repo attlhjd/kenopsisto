@@ -1,5 +1,4 @@
 <x-base-layout>
-
     @php
         $images = [
             'sliders/1 (2).jpg',
@@ -14,19 +13,19 @@
     @endphp
     <body class="bg-black grid grid-cols-1 place-items-center h-screen items-center justify-center">
     <a href="/homepage" class="text-white font-fortyseven-micro underline underline-offset-4 cursor-pointer absolute top-0 left-0">home</a>
-    <div id="slider" class="">
+    <div id="slider">
         <div class="flex justify-center items-center">
             <img class="slide" src="{{ asset('sliders/1 (1).jpg') }}" style="width: 20%;" alt="bob">
             @foreach($images as $image)
-                    <img class="slide" src="{{ asset($image) }}" style="width: 20%;" alt="$image">
+                <img class="slide" src="{{ asset($image) }}" style="width: 20%;" alt="$image">
             @endforeach
-
         </div>
-        <div class="grid grid-cols-1 place-items-center">
-            <div class="text-8xl">
-                <a class="carousel-control left text-white" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                <a class="carousel-control right text-white" href="#myCarousel" data-slide="next">&rsaquo;</a>
-            </div>
+
+    </div>
+    <div class="absolute bottom-10 left-100 grid grid-cols-1 place-items-center">
+        <div class="text-5xl">
+            <a class="carousel-control left text-white" href="#slider" onclick="prevSlide()" style="cursor: default;">&lsaquo;</a>
+            <a class="carousel-control right text-white" href="#slider" onclick="nextSlide()" style="cursor: default;">&rsaquo;</a>
         </div>
     </div>
     <script>
@@ -37,11 +36,18 @@
                     slide.style.display = "none";
                 }
             });
-            const carousel = document.querySelector('#slider');
-            const left = document.querySelector('.left');
-            const right = document.querySelector('.right');
             const totalSlides = slides.length;
             let slideIndex = 0;
+
+            window.prevSlide = function() {
+                slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+                showSlide(slideIndex);
+            }
+
+            window.nextSlide = function() {
+                slideIndex = (slideIndex + 1) % totalSlides;
+                showSlide(slideIndex);
+            }
 
             function showSlide(index) {
                 slides.forEach((slide) => {
@@ -49,19 +55,6 @@
                 });
                 slides[index].style.display = "block";
             }
-
-            function nextSlide() {
-                slideIndex = (slideIndex + 1) % totalSlides;
-                showSlide(slideIndex);
-            }
-
-            function prevSlide() {
-                slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
-                showSlide(slideIndex);
-            }
-
-            left.addEventListener('click', prevSlide);
-            right.addEventListener('click', nextSlide);
         });
     </script>
     </body>

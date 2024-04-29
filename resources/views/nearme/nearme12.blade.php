@@ -1,6 +1,6 @@
 <x-base-layout>
     <body class="bg-black">
-    <div class="ml-[213px] mt-[100px] h-screen">
+    <div class="ml-[213px] h-screen">
         <img class="block overflow-none" src="{{ asset('nearme_images/12.jpg') }}" style="width: 1102px;
 height: 910px;
 flex-shrink: 0; object-fit: cover;" usemap="#map" >
