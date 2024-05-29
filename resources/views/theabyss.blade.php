@@ -16,7 +16,7 @@
         <div></div>
 
         <div class="w-[756px] mt-[500px] text-white rounded-lg p-2 cursor-pointer">
-            <p>the future must be <span style="color:#FF0101">nice</span></p>
+            <p>the future must be <span style="color:#FF0101"><a href="{{ route('endoftheworld') }}">nice</a></span></p>
         </div>
     </div>
     <script>

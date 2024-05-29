@@ -15,7 +15,7 @@
         <script>
             const select = document.querySelector('#chemin');
             select.addEventListener('change', function() {
-                if (this.value === 'heaven') {
+                if (this.value === 'heaven_images') {
                     window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
                 } else if (this.value === 'hell') {
                     window.location.href = '/playdead';

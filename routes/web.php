@@ -75,7 +75,44 @@ Route::get('/sword', function () {
     return view('sword');
 })->name('sword');
 
+Route::get('/transcript', function () {
+    return view('transcript');
+})->name('transcript');
 
+Route::get('/reconnaissance', function (){
+    return view('reconnaissance');
+})->name('reconnaissance');
 
+Route::get('/complete', function (){
+    return view('complete');
+})->name('complete');
+
+Route::get('/averynormalportal', function (){
+    return view('averynormalportal');
+})->name('averynormalportal');
+
+Route::get('/averynormalwebsite', function (){
+    return view('averynormalwebsite');
+})->name('averynormalwebsite');
+
+Route::get('/informations', function (){
+    return view('informations');
+})->name('informations');
+
+Route::get('/aboutus', function (){
+    return view('aboutus');
+})->name('aboutus');
+
+Route::get('/products', function (){
+    return view('products');
+})->name('products');
+
+Route::get('/heaven', function (){
+    return view('heaven');
+})->name('heaven');
+
+Route::get('/endoftheworld', function (){
+    return view('endoftheworld');
+})->name('endoftheworld');
 
 require __DIR__.'/kenopsis.php';
