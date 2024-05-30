@@ -116,3 +116,5 @@ Route::get('/endoftheworld', function (){
 })->name('endoftheworld');
 
 require __DIR__.'/kenopsis.php';
+require __DIR__.'/forms.php';
+
