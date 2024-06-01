@@ -1,84 +1,105 @@
 <x-base-layout>
     <body class="bg-black">
     <style>
-        body { background-color: black; }
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+            position: relative;
+        }
+
         .drop-zone {
-            width: 400px;
+            width: 500px;
             height: 600px;
-            border: 2px solid white;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border: 3px solid white;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            overflow: hidden; /* Keep everything within the zone */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
         }
+
         img {
-            transition: transform 0.2s ease-in-out;
-            cursor: pointer;
-            position: absolute; /* Allows positioning within the drop zone */
+            width: 300px; /* Adjust based on your image size */
+            height: 300px;
+            position: absolute;
+            cursor: grab; /* Default cursor for dragging */
         }
+
         .hidden {
             display: none;
         }
+
+        button {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            color: black;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            display: none; /* Initially hidden */
+        }
     </style>
     <a href="/homepage" class="text-white font-fortyseven-micro underline underline-offset-4 cursor-pointer absolute top-0 left-0">Home</a>
-    <div id="dropZone" class="drop-zone">
-    </div>
-    <img class="top-[7%] left-[7%]" src="{{ asset('reconnaissance_image/reconnaissance1.png') }}" alt="img1" draggable="true" id="img1">
-    <img class="top-[57%] left-[7%]" src="{{ asset('reconnaissance_image/reconnaissance2.png') }}" alt="img2" draggable="true" id="img2">
-    <img class="top-[7%] left-[67%]" src="{{ asset('reconnaissance_image/reconnaissance3.png') }}" alt="img3" draggable="true" id="img3">
-    <img class="top-[67%] left-[67%]" src="{{ asset('reconnaissance_image/reconnaissance4.png') }}" alt="img4" draggable="true" id="img4">
-    <button  id="submitButton" class="hidden absolute top-[90%] left-[50%] bg-white px-2 rounded font-neuebit" onclick="window.location.href='/complete'">Submit</button>
+    <div class="drop-zone font-neuebit" id="dropZone">Drop here</div>
+    <img alt="img1" src="{{ asset('reconnaissance_image/reconnaissance1.png')}}" class="image" style="top: 7%; left: 7%;" id="img1">
+    <img alt="img2" src="{{ asset('reconnaissance_image/reconnaissance2.png')}}" class="image" style="top: 57%; left: 7%;" id="img2">
+    <img alt="img3" src="{{ asset('reconnaissance_image/reconnaissance3.png')}}" class="image" style="top: 7%; left: 67%;" id="img3">
+    <img alt="img4" src="{{ asset('reconnaissance_image/reconnaissance4.png')}}" class="image" style="top: 67%; left: 67%;" id="img4">
+    <a href="{{route('complete')}}"><button id="submitButton" class="rounded font-neuebit">Submit</button></a>
 
     <script>
-        const dropZone = document.getElementById('dropZone');
-        const submitButton = document.getElementById('submitButton');
-        const images = document.querySelectorAll('img');
-        let imagesInZone = 0;
+        const images = document.querySelectorAll('.image');
 
         images.forEach(img => {
-            img.addEventListener('dragstart', function(e) {
-                e.dataTransfer.setData('text', e.target.id);
-                e.dataTransfer.setDragImage(e.target, 0, 0); // Sets the drag image position
+            let offsetX, offsetY, isDragging = false;
+
+            img.addEventListener('mousedown', function(e) {
+                // Ensure default drag behavior is suppressed
+                e.preventDefault();
+                offsetX = e.clientX - img.offsetLeft;
+                offsetY = e.clientY - img.offsetTop;
+                isDragging = true;
+                img.style.cursor = 'grabbing';
+
+                // Attach move and up listeners to document to ensure smooth dragging
+                document.addEventListener('mousemove', mouseMoveHandler);
+                document.addEventListener('mouseup', mouseUpHandler);
             });
-        });
 
-        dropZone.addEventListener('dragover', function(e) {
-            e.preventDefault(); // Necessary to allow drop
-            this.style.backgroundColor = 'grey'; // Highlight the drop zone
-        });
+            function mouseMoveHandler(e) {
+                if (isDragging) {
+                    img.style.left = `${e.clientX - offsetX}px`;
+                    img.style.top = `${e.clientY - offsetY}px`;
+                }
+            }
 
-        dropZone.addEventListener('dragleave', function(e) {
-            this.style.backgroundColor = ''; // Reset background when dragging out
-        });
-
-        dropZone.addEventListener('drop', function(e) {
-            e.preventDefault();
-            this.style.backgroundColor = '';
-            const id = e.dataTransfer.getData('text');
-            const img = document.getElementById(id);
-            const dropRect = dropZone.getBoundingClientRect();
-            const x = e.clientX - dropRect.left - (img.width / 2); // Position image based on cursor
-            const y = e.clientY - dropRect.top - (img.height / 2); // Position image based on cursor
-            img.style.left = `${x}px`;
-            img.style.top = `${y}px`;
-            if (!this.contains(img)) {
-                this.appendChild(img);
-                imagesInZone++;
-                checkImages();
+            function mouseUpHandler(e) {
+                isDragging = false;
+                img.style.cursor = 'grab';
+                document.removeEventListener('mousemove', mouseMoveHandler);
+                document.removeEventListener('mouseup', mouseUpHandler);
+                checkDropZone(img);
             }
         });
 
-        function checkImages() {
+        function checkDropZone(img) {
+            const dzRect = document.getElementById('dropZone').getBoundingClientRect();
+            const imgRect = img.getBoundingClientRect();
 
-            if (imagesInZone === 4) {
-                submitButton.classList.remove('hidden');
+            // Check if any part of the image overlaps with the drop zone
+            if (imgRect.left < dzRect.right && imgRect.right > dzRect.left &&
+                imgRect.top < dzRect.bottom && imgRect.bottom > dzRect.top) {
+                document.getElementById('submitButton').style.display = 'block'; // Show submit button if any image is in the drop zone
             }
-            console.log(submitButton);
         }
     </script>
     </body>

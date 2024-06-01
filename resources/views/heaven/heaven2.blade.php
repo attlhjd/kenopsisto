@@ -10,8 +10,8 @@
         }
         .image {
             position: absolute;
-            width: 50px;
-            height: 50px;
+            width: 56px;
+            height: 88px;
             transition: transform 0.3s ease-out;
         }
         a {

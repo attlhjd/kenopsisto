@@ -21,7 +21,20 @@
     </div>
     <script>
         function reply(responseId, message) {
-            document.getElementById(responseId).innerHTML = message;
+
+            if (message === 'I am you from the future') {
+                let future = document.createElement('a');
+                future.href = '/form1';
+                future.innerHTML = 'future';
+                future.style.color = '#FF0101';
+
+                message = 'I am you from the ';
+                document.getElementById(responseId).innerHTML = message;
+                document.getElementById(responseId).appendChild(future);
+            } else {
+                document.getElementById(responseId).innerHTML = message;
+            }
+
         }
     </script>
     </body>

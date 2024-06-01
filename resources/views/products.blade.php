@@ -39,22 +39,24 @@
             </div>
             <div class="vl absolute" style="left:500px; top: 20px;"></div>
             <div class="col-span-2 text-left">
-                <div class=" grid grid-cols-3 p-4 justify-center items-center text-center" >
+                <div class=" grid grid-cols-4 p-4 justify-center items-center text-center" >
                     <div class="justify-center items-center text-center">
-                        <img style="width: 123px;height: 140px;" class="mx-36" src="{{ asset('averynormalwebsite_images/icone.png') }}" alt="icone">
+                        <img style="width: 123px;height: 140px;" class="mx-24" src="{{ asset('averynormalwebsite_images/icone.png') }}" alt="icone">
                         <p>kenopsis.exe</p>
                         <p><b>60$</b></p>
                     </div>
                     <div>
-                        <img style="width: 123px;height: 140px;" class="mx-36" src="{{ asset('averynormalwebsite_images/icone.png') }}" alt="icone">
+                        <img style="width: 123px;height: 140px;" class="mx-24" src="{{ asset('averynormalwebsite_images/icone.png') }}" alt="icone">
                         <p>▒op▀is.exe</p>
                         <p><b>60$</b></p>
                     </div>
+                    <a href="{{route('portail')}}">
                     <div>
-                        <img style="width: 123px;height: 140px;" class="mx-36" src="{{ asset('averynormalwebsite_images/icone.png') }}" alt="icone">
+                        <img style="width: 123px;height: 140px;" class="mx-24" src="{{ asset('averynormalwebsite_images/icone.png') }}" alt="icone">
                         <p>▀▓▒▓▓▀▀▒.exe</p>
                         <p><b>60$</b></p>
                     </div>
+                    </a>
                 </div>
             </div>
         </div>

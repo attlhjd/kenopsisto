@@ -30,8 +30,8 @@
                 <nav class="p-4 flex justify-around">
                     <ul style="list-style-type: circle;">
                         <li class="mt-4"><a href="{{route('informations')}}" class="link">Informations</a></li>
-                        <li class="mt-4"><a href="#" class="link">About us</a></li>
-                        <li class="mt-4"><a href="#" class="link">Products</a></li>
+                        <li class="mt-4"><a href="{{route('aboutus')}}" class="link">About us</a></li>
+                        <li class="mt-4"><a href="{{route('products')}}" class="link">Products</a></li>
                     </ul>
                 </nav>
 
@@ -42,7 +42,7 @@
                     <p>Welcome to our website.</p>
                     <p>We're trying our best to offer the best experience.</p>
                 </div>
-                <img class="" src="{{ asset('averynormalwebsite_images/smiling.jpg') }}" style="width: 1040px;height: 503px;flex-shrink: 0;" alt="smiling people">
+                <img class="" src="{{ asset('averynormalwebsite_images/smiling.jpg') }}" style="width:50%" alt="smiling people">
                 <p class="" style="font-size:16px;">“Ha ha what a fun meeting”</p>
             </div>
         </div>

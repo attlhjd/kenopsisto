@@ -5,8 +5,12 @@
         input[type='radio'] {
             accent-color: red;
         }
-        option {
-
+        option, select {
+            color: #000;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
         }
     </style>
     <a href="/homepage" class="text-white font-fortyseven-micro underline underline-offset-4 cursor-pointer absolute top-0 left-0">home</a>

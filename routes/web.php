@@ -108,7 +108,7 @@ Route::get('/products', function (){
 })->name('products');
 
 Route::get('/heaven', function (){
-    return view('heaven');
+    return view('heaven.heaven');
 })->name('heaven');
 
 Route::get('/endoftheworld', function (){
@@ -126,6 +126,62 @@ Route::get('/heaven3', function (){
 Route::get('/heaven4', function (){
     return view('heaven.heaven4');
 })->name('heaven4');
+
+Route::get('/notreal1', function (){
+    return view('notreal.notreal1');
+})->name('notreal1');
+
+Route::get('/notreal2', function (){
+    return view('notreal.notreal2');
+})->name('notreal2');
+
+Route::get('/notreal3', function (){
+    return view('notreal.notreal3');
+})->name('notreal3');
+
+Route::get('/notreal4', function (){
+    return view('notreal.notreal4');
+})->name('notreal4');
+
+Route::get('/notreal5', function (){
+    return view('notreal.notreal5');
+})->name('notreal5');
+
+Route::get('/endoftime', function (){
+    return view('endoftime');
+})->name('endoftime');
+
+Route::get('/feelinglucky', function (){
+    return view('fellinglucky.feelinglucky');
+})->name('feelinglucky');
+
+Route::get('/helpline', function (){
+    return view('fellinglucky.helpline');
+})->name('helpline');
+
+Route::get('/mirror', function (){
+    return view('fellinglucky.mirror');
+})->name('mirror');
+
+Route::get('/almostwikipedia', function (){
+    return view('fellinglucky.almostwikipedia');
+})->name('almostwikipedia');
+
+Route::get('/wrongtime', function (){
+    return view('fellinglucky.wrongtime');
+})->name('wrongtime');
+
+Route::get('/virus2', function (){
+    return view('virus2');
+})->name('virus2');
+
+Route::get('/you', function (){
+    return view('you');
+})->name('you');
+
+Route::get('/security', function (){
+    return view('security');
+})->name('security');
 
 require __DIR__.'/kenopsis.php';
 require __DIR__.'/forms.php';

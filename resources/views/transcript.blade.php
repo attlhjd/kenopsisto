@@ -15,6 +15,13 @@
         @keyframes blink {
             50% { background-color: transparent; }
         }
+        p, span {
+            color: #FFF;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
         a {
             color: #FF0101;
             text-decoration: underline;

@@ -36,7 +36,7 @@
             if (this.classList.contains('button-disabled')) {
                 event.preventDefault(); // Prevent the navigation
             } else {
-                window.location.href = "{{ route('form12') }}"; // Redirect if not disabled
+                window.location.href = "{{ route('form13') }}"; // Redirect if not disabled
             }
         });
     </script>

@@ -6,7 +6,7 @@
                 <img class="flex" src="{{asset('benot/porte.png')}}" width="212" height="409" alt="titre">
         </div>
         <div>
-            <select name="" id="chemin" class="font-fortyseven-micro">
+            <select  name="" id="chemin" class="font-fortyseven-micro px-2">
                 <option selected disabled value="" class="font-fortyseven-micro">select a location</option>
                 <option value="heaven" class="font-fortyseven-micro">heaven</option>
                 <option value="hell" class="font-fortyseven-micro">hell</option>
@@ -15,8 +15,8 @@
         <script>
             const select = document.querySelector('#chemin');
             select.addEventListener('change', function() {
-                if (this.value === 'heaven_images') {
-                    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+                if (this.value === 'heaven') {
+                    window.location.href = '/heaven';
                 } else if (this.value === 'hell') {
                     window.location.href = '/playdead';
                 }

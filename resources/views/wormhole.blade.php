@@ -3,7 +3,6 @@
         .popup {
             position: absolute;
             padding: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -20,21 +19,20 @@
     <script>
         var regularImagePaths = [
             @for ($i = 5; $i <= 46; $i++)
-                @if (!in_array($i, [19, 25, 42, 45, 40,8,12]))
+                @if (!in_array($i, [19, 25, 42, 45,8,12]))
                 "{{ asset('wormhole/Fichier ' . $i . 'fleche.png') }}",
             @endif
             @endfor
         ];
 
         var specialImagesInfo = [
-            { path: "{{ asset('wormhole/Fichier 40fleche.png') }}", route: "/sword" },
             { path: "{{ asset('wormhole/Fichier 8fleche.png') }}", route: "/congrats" },
             { path: "{{ asset('wormhole/Fichier 12fleche.png') }}", route: "/virus" }
         ];
 
-        var allRoutes = ["/sword", "/congrats", "/virus"]; // All possible routes
+        var allRoutes = ["/congrats", "/virus"]; // All possible routes
 
-        var currentDelay = 2000; // Initial delay for popups
+        var currentDelay = 500; // Initial delay for popups
 
         function scheduleNextPopup() {
             setTimeout(function() {
@@ -89,12 +87,12 @@
             if (imageInfo) {
                 setTimeout(function() {
                     popup.style.transform = "scale(2)"; // Double the size over 10 minutes
-                }, 600000); // 10 minutes
+                }, 10000); // 10 minutes
             }
         }
         function redirectToRandomRoute() {
             var randomRouteIndex = Math.floor(Math.random() * allRoutes.length);
-            window.location.href = allRoutes[randomRouteIndex];
+            //window.location.href = allRoutes[randomRouteIndex];
         }
     </script>
     </body>
