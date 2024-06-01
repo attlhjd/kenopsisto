@@ -115,6 +115,18 @@ Route::get('/endoftheworld', function (){
     return view('endoftheworld');
 })->name('endoftheworld');
 
+Route::get('/heaven2', function (){
+    return view('heaven.heaven2');
+})->name('heaven2');
+
+Route::get('/heaven3', function (){
+    return view('heaven.heaven3');
+})->name('heaven3');
+
+Route::get('/heaven4', function (){
+    return view('heaven.heaven4');
+})->name('heaven4');
+
 require __DIR__.'/kenopsis.php';
 require __DIR__.'/forms.php';
 
