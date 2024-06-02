@@ -1,7 +1,7 @@
 <x-base-layout>
     <body class="bg-black">
     <a href="/homepage" class="text-white font-fortyseven-micro underline underline-offset-4 cursor-pointer absolute top-0 left-0">home</a>
-    <p class="text-output" id="Easportseunegame"></p>
+    <p class="text-output text-white mt-16 ml-12" id="Easportseunegame"></p>
 
     <script>
         const initialText = [

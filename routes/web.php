@@ -230,6 +230,22 @@ Route::get('/handbook', function (){
     return view('handbook');
 })->name('handbook');
 
+Route::get('/echolalia', function (){
+    return view('echolalia');
+})->name('echolalia');
+
+Route::get('/threshold', function (){
+    return view('threshold');
+})->name('threshold');
+
+Route::get('/threshold2', function (){
+    return view('threshold2');
+})->name('threshold2');
+
+Route::get('/threshold3', function (){
+    return view('threshold3');
+})->name('threshold3');
+
 require __DIR__.'/kenopsis.php';
 require __DIR__.'/forms.php';
 
