@@ -152,7 +152,7 @@ Route::get('/endoftime', function (){
 })->name('endoftime');
 
 Route::get('/feelinglucky', function (){
-    return view('fellinglucky.feelinglucky');
+    return view('fellinglucky.fellinglucky');
 })->name('feelinglucky');
 
 Route::get('/helpline', function (){

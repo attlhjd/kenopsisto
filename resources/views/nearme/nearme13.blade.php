@@ -7,7 +7,7 @@ flex-shrink: 0; object-fit: cover;" usemap="#map" >
 
         <map name="map">
             <area shape="rect" coords="38,65,242,143" href="{{ route('nearme17') }}" alt="Near Me 17">
-            <area shape="rect" coords="1010,468,1078,540" href="" alt="tulpa2">
+            <area shape="rect" coords="1010,468,1078,540" href="{{ route('endoftime') }}" alt="tulpa2">
         </map>
     </div>
     </body>
