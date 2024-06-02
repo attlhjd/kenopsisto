@@ -183,6 +183,53 @@ Route::get('/security', function (){
     return view('security');
 })->name('security');
 
+Route::get('/angel', function (){
+    return view('angel');
+})->name('angel');
+
+Route::get('/headonthefloor', function (){
+    return view('headonthefloor');
+})->name('headonthefloor');
+
+Route::get('/milkpack', function (){
+    return view('milkpack');
+})->name('milkpack');
+
+Route::get('/institute', function (){
+    return view('institute');
+})->name('institute');
+
+Route::get('/password', function (){
+    return view('password');
+})->name('password');
+
+Route::get('/employee', function (){
+    return view('employee_homepage');
+})->name('employee');
+
+Route::get('/badge', function (){
+    return view('badge');
+})->name('badge');
+
+Route::get('/service-worker-assets', function () {
+    $publicPath = public_path();
+    $allFiles = File::allFiles($publicPath);
+    $files = [];
+
+    foreach ($allFiles as $file) {
+        $filePath = $file->getRealPath();
+        if (str_contains($filePath, $publicPath)) { // Ensure it's within public directory
+            $files[] = str_replace($publicPath, '', $filePath);
+        }
+    }
+
+    return Response::json($files);
+});
+
+Route::get('/handbook', function (){
+    return view('handbook');
+})->name('handbook');
+
 require __DIR__.'/kenopsis.php';
 require __DIR__.'/forms.php';
 

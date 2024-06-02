@@ -1,24 +1,35 @@
 <x-base-layout>
     <body class="bg-black">
     <a href="/homepage" class="text-white font-fortyseven-micro underline underline-offset-4 cursor-pointer absolute top-0 left-0">home</a>
-    <p style="top:40px;left:10px;" class="text-white font-neuebit absolute" id="Easportseunegame"></p>
+    <p class="text-output" id="Easportseunegame"></p>
+
     <script>
-        const initialText = "subject found the special link";
-        let index = 0;
-        const speed = 50; // Speed of typing in milliseconds
+        const initialText = [
+            "Starting MS-DOS",
+            "TESTING MEMORY.............DONE",
+            "LAUCHING FATAORGANA NETWORK.............DONE"
+        ];
+        let currentLine = 0;
+        let charIndex = 0;
+        const typingSpeed = 50;
+        const pauseBetweenLines = 2000; // Pause between lines in milliseconds
 
         function typeWriter() {
-            if (index < initialText.length) {
-                document.getElementById("Easportseunegame").innerHTML += initialText.charAt(index);
-                index++;
-                setTimeout(typeWriter, speed);
-            } else {
-                setTimeout(() => {
-                    document.getElementById("Easportseunegame").innerHTML = '';
-                }, 7000);
-
+            const output = document.getElementById("Easportseunegame");
+            if (currentLine < initialText.length) {
+                if (charIndex < initialText[currentLine].length) {
+                    output.innerHTML += initialText[currentLine].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, typingSpeed);
+                } else {
+                    output.innerHTML += '<br>'; // Add a line break after the line is completed
+                    charIndex = 0; // Reset character index for the next line
+                    currentLine++; // Move to the next line in the array
+                    setTimeout(typeWriter, pauseBetweenLines); // Wait before starting the next line
+                }
             }
         }
+
         window.onload = typeWriter;
     </script>
     </body>

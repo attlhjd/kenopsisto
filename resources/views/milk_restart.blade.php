@@ -18,7 +18,7 @@
     </style>
     <body class="bg-black">
     <a href="/homepage" class="text-white font-fortyseven-micro underline underline-offset-4 cursor-pointer absolute top-0 left-0">home</a>
-    <!--
+
     <div class="bg-video">
 
 
@@ -26,6 +26,6 @@
             Your browser does not support the video tag.
         </video>
     </div>
-    -->
+
     </body>
 </x-base-layout>

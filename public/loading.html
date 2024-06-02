@@ -1,0 +1,29 @@
+<!-- loading.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+</head>
+<body>
+<div id="progressBar" style="width: 50%; height: 30px; background-color: #ddd;">
+    <div id="progress" style="height: 100%; width: 0%; background-color: #007bff;"></div>
+</div>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.addEventListener('message', event => {
+            console.log('Message from SW:', event.data);
+            const data = event.data;
+            if (data.type === 'progress') {
+                const progressBar = document.getElementById('progressBar');
+                if (progressBar) {
+                    progressBar.style.width = `${data.progress}%`;
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

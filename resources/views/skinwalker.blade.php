@@ -30,9 +30,9 @@
     <body class="bg-black h-screen">
     <a href="/homepage" class="text-white font-fortyseven-micro underline underline-offset-4 cursor-pointer absolute top-0 left-0">home</a>
     <div class="grid grid-cols-3 place-items-center mt-20">
-        <img src="{{ asset('skinwalkers/brique def.png') }}" class="hover-image" data-hover="{{ asset('skinwalkers/Fichier 5fleche.png') }}">
-        <img src="{{ asset('skinwalkers/brique def.png') }}" class="hover-image" data-hover="{{ asset('skinwalkers/Fichier 5fleche.png') }}">
-        <img src="{{ asset('skinwalkers/brique def.png') }}" class="hover-image" data-hover="{{ asset('skinwalkers/Fichier 5fleche.png') }}">
+        <a id="angel" href="{{ route('angel') }}"><img src="{{ asset('skinwalkers/brique def.png') }}" class="hover-image" data-hover="{{ asset('skinwalkers/Fichier 5fleche.png') }}"></a>
+        <a href="{{ route('milkpack') }}"><img src="{{ asset('skinwalkers/brique def.png') }}" class="hover-image" data-hover="{{ asset('skinwalkers/Fichier 5fleche.png') }}"></a>
+        <a href="{{ route('headonthefloor') }}"><img src="{{ asset('skinwalkers/brique def.png') }}" class="hover-image" data-hover="{{ asset('skinwalkers/Fichier 5fleche.png') }}"></a>
     </div>
     <div class="footer-text font-neuebit">
         the images are not loading ? please <a href="{{ route('milk') }}"><span style="color: #FF0101">click here</span></a> to restart the page
@@ -53,6 +53,7 @@
                     img.src = originalSrc;
                 });
             });
+
         });
 
     </script>
