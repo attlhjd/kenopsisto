@@ -92,7 +92,7 @@
             <img style="width:3%; margin-bottom:30px; margin-right: 10px; " src="{{ asset('images/logo_fata.png') }}" alt=""><h1>FATAORGANA INSTITUTE- EMPLOYEE PORTAL</h1>
         </div>
         <ul >
-            <li class="cursor-pointer" id="text1">■ Handbook</li>
+            <a href="{{ route('handbook') }}"><li class="cursor-pointer" id="text1">■ Handbook</li></a>
             <a href="{{ route('badge') }}"><li class="cursor-pointer" id="text2">■ Badge</li></a>
         </ul>
     </div>

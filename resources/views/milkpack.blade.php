@@ -52,8 +52,8 @@ line-height: normal;">In an unprecedented move to address the alarming increase 
 
     </div>
     <img style="width: 50%; padding: 1rem; margin-left: 35rem;" src="{{asset('skinwalkers/brique def.png')}}" alt="">
-    <div>
-        <img style="padding: 1rem; margin-left: 50rem;" src="{{ asset('skinwalkers/img_1.png') }}" alt="">
-    </div>
+
+        <img style=" padding: 1rem; margin-left: 42rem;" src="{{ asset('skinwalkers/img_1.png') }}" alt="">
+
     </body>
 </x-base-layout>

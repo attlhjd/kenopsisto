@@ -2,14 +2,23 @@
 
     <body class="antialiased bg-black text-white font-neuebit text-lg flex items-center justify-center min-h-screen">
     <style>
+        .image-container {
+            display: flex;  /* Enables flexbox */
+            justify-content: center; /* Centers content horizontally */
+            align-items: center; /* Centers content vertically */
+            background-color: white;
+            padding: 2px;
+            margin-bottom: 8px;
+        }
+
         input[type='radio'] {
             accent-color: red;
         }
     </style>
     <a href="/homepage" class="text-white font-fortyseven-micro underline underline-offset-4 cursor-pointer absolute top-0 left-0">home</a>
     <div class="text-center">
-        <div class="bg-white mb-8 p-2">
-        <img class="ml-10" src="{{asset('notreal_images/capchat1.png')}}" alt="">
+        <div class="image-container">
+                <img height="60px" src="{{asset('notreal_images/capchat1.png')}}" alt="Captcha Image">
         </div>
         <div class="mb-2">
             <input class="bg-black border border-white rounded w-64 px-2" type="text" id="nameInput" name="human" oninput="enableSubmit()" />

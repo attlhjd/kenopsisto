@@ -50,12 +50,6 @@
             writing-mode: vertical-rl;
             text-align: center;
             transform-origin: bottom;
-            color: #000;
-            font-family: Whyte;
-            font-size: 32px;
-            font-style: normal;
-            font-weight: 900;
-            line-height: normal;
         }
         .vertical-line {
             position: absolute;
@@ -86,7 +80,7 @@
             border-top: 3px solid black;
         }
     </style>
-    <div class="menu" style="z-index: 3">
+    <div class="menu" style="z-index: 5">
         <div class="flex items-center align-middle">
         <img style="width:3%; margin-bottom:30px; margin-right: 10px; " src="{{ asset('images/logo_fata.png') }}" alt=""><h1>FATAORGANA INSTITUTE</h1>
         </div>
@@ -94,17 +88,17 @@
             <li class="cursor-pointer" id="text1">■ Info</li>
             <li class="cursor-pointer" id="text2">■ Ressources</li>
             <li class="cursor-pointer" id="text3">■ Contact</li>
-            <a href=""><li>■ Employee access</li></a>
+            <a href="{{ route('password') }}"><li>■ Employee access</li></a>
         </ul>
     </div>
     <div class="vertical-line"></div>
     <div class="coin-bas"></div>
-    <div class="coin-haut" style="z-index: 5"> </div>
+    <div class="coin-haut" style="z-index: 3"> </div>
     <div class="message">
         <p>KEEP YOUR EYES OPEN</p>
     </div>
 
-    <div id="texto1" class="font-fortyseven-micro" style="position:absolute; width:500px; left:60%;color: #000;font-size: 32px;font-style: normal;font-weight: 400;line-height: normal;display:none;">
+    <div id="texto1" class="" style="position:absolute; width:550px; left:60%;color: #000;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;display:none;">
         <p>
             Established in 2012, FataOrgana Institute stands as a beacon of excellence in the realm of documenting, researching, and safeguarding populations from paranormal occurrences.
             <br><br>
@@ -117,22 +111,22 @@
             Driven by a relentless pursuit of truth and a dedication to the safety and well-being of all, FataOrgana Institute stands at the forefront of paranormal research, illuminating the shadows of the unknown and empowering society with knowledge and resilience.
         </p>
     </div>
-    <div id="texto2" class="font-fortyseven-micro"  style="position:absolute; width:500px; left:60%;color: #000;font-size: 32px;font-style: normal;font-weight: 400;line-height: normal;display:none;">
+    <div id="texto2" class=""  style="position:absolute; width:500px; left:60%;color: #000;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;display:none;">
         <p>
             From streamlined documentation to crucial safety guidelines, equip yourself with the tools needed to protect yourself and your family from the new world.
             <br><br>
             Form : <br>
-            Skinwalker test
+            <a href="{{ route('echolalia') }}">Skinwalker test</a>
             <br><br>
             Tools : <br>
-            ThresholdTracker
+            <a href="{{ route('threshold') }}">ThresholdTracker</a>
         </p>
     </div>
-    <div id="texto3" class="font-fortyseven-micro"  style="position:absolute; width:500px; left:60%;color: #000;font-size: 32px;font-style: normal;font-weight: 400;line-height: normal;display:none;">
+    <div id="texto3" class=""  style="position:absolute; width:500px; left:60%;color: #000;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;display:none;">
         <p>
             If you notice something unsual <br>or paranormal please contact us.
             At our e-mail adress :<br><br>
-            fataorgana. institute@gmail.com
+            <a href="mailto:fataorgana.institute@gmail.com">fataorgana.institute@gmail.com</a>
         </p>
     </div>
     <script>

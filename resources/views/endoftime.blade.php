@@ -19,21 +19,26 @@
         }
 
         .cd-cover {
-            width: 50%; /* Adjust based on your preference */
+            width: 375px;
+            height: 375px;
+            flex-shrink: 0; /* Ensures the image doesn't scale */
             margin-bottom: 20px;
         }
 
         .controls {
-            margin: 20px 0;
+            display: flex; /* Ensures flexbox layout */
+            justify-content: center; /* Centers buttons horizontally */
+            align-items: center; /* Aligns buttons vertically */
+            width: 100%; /* Full width to spread out button spacing */
+            gap: 15px; /* Ensures consistent spacing between buttons */
         }
 
         .control-btn {
             background: none;
             border: none;
-            color: white;
-            font-size: 2em; /* Adjust the size of the control buttons */
             cursor: pointer;
-            margin: 0 15px;
+            width: 64px; /* Consistent button size */
+            height: 64px; /* Consistent button size */
         }
 
         .progress-bar {
@@ -41,6 +46,7 @@
             height: 4px;
             background: grey;
             position: relative;
+            cursor: pointer;
         }
 
         .progress {
@@ -50,62 +56,75 @@
             position: absolute;
         }
     </style>
+
     <a href="/homepage" class="text-white font-fortyseven-micro underline underline-offset-4 cursor-pointer absolute top-0 left-0">home</a>
 
     <div class="cd-container">
-        <img style="width: 375px;
-height: 375px;
-flex-shrink: 0;" src="{{ asset('images/cd.jpg') }}" alt="CD Cover" class="cd-cover">
-        <audio id="audioPlayer" src="{{ asset('heaven_files/music.mp3') }}" autoplay></audio> <!-- Replace with your audio file -->
+        <img src="{{ asset('images/cd.jpg') }}" alt="CD Cover" class="cd-cover">
+        <audio id="audioPlayer" src="{{ asset('heaven_files/music.mp3') }}" autoplay></audio>
         <div class="progress-bar mb-8">
             <div class="progress" id="progress"></div>
         </div>
         <div class="controls">
-            <button class="control-btn" onclick="previousTrack()">⏮︎</button>
-            <button class="control-btn" onclick="togglePlayPause()">&#9658;</button>
-            <button class="control-btn" onclick="nextTrack()">⏭︎</button>
+            <button class="control-btn" onclick="previousTrack()"><img src="{{ asset('images/Fichier 3PLAY2.png') }}" alt="Previous"></button>
+            <button class="control-btn" onclick="togglePlayPause()"><img src="{{ asset('images/Fichier 4ON.png') }}" alt="Play/Pause"></button>
+            <button class="control-btn" onclick="nextTrack()"><img src="{{ asset('images/Fichier 2PLAY.png') }}" alt="Next"></button>
         </div>
-
     </div>
+
     </body>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const player = document.getElementById('audioPlayer');
             player.volume = 0.2; // Set the volume to 20%
-           player.play();
-            const playButton = document.querySelector('.control-btn:nth-child(2)'); // Play button
-                playButton.innerHTML = '&#10074;&#10074;';
-        });
-        // Toggles play and pause
-        function togglePlayPause() {
-            const player = document.getElementById('audioPlayer');
-            const playButton = document.querySelector('.control-btn:nth-child(2)'); // Play button
-            if (player.paused || player.ended) {
-                playButton.innerHTML = '&#10074;&#10074;'; // Change to pause symbol
-                player.play();
-            } else {
-                playButton.innerHTML = '&#9658;'; // Change to play symbol
-                player.pause();
-            }
-        }
-
-        // Updates the progress bar as the audio plays
-        document.getElementById('audioPlayer').addEventListener('timeupdate', function () {
+            const progressBarContainer = document.querySelector('.progress-bar');
             const progressBar = document.getElementById('progress');
-            const percentage = Math.floor((100 / this.duration) * this.currentTime);
-            progressBar.style.width = percentage + '%';
+
+            // Play the audio right away if autoplay issues arise
+            player.play().catch(error => console.error('Playback failed:', error));
+
+            // Event listener for play/pause toggle
+            document.querySelector('.control-btn:nth-child(2)').addEventListener('click', togglePlayPause);
+
+            // Updates the progress bar as the audio plays
+            player.addEventListener('timeupdate', function () {
+                const percentage = Math.floor((100 / this.duration) * this.currentTime);
+                progressBar.style.width = percentage + '%';
+            });
+
+            // Seek functionality when clicking on the progress bar
+            progressBarContainer.addEventListener('click', function (e) {
+                const bounds = this.getBoundingClientRect();
+                const clickPosition = (e.pageX - bounds.left); // Horizontal position of click
+                const totalWidth = bounds.width; // Total width of the progress bar
+                const clickRatio = clickPosition / totalWidth;
+                const newTime = clickRatio * player.duration;
+                player.currentTime = newTime; // Seek the audio
+            });
+
+            // Play/Pause toggle function
+            function togglePlayPause() {
+                const playButton = document.querySelector('.control-btn:nth-child(2)'); // Play button
+                if (player.paused || player.ended) {
+                    playButton.innerHTML = '<img src="{{ asset('images/Fichier 5OFF.png') }}" alt="Play/Pause">'; // Change to pause symbol
+                    player.play();
+                } else {
+                    playButton.innerHTML = '<img src="{{ asset('images/Fichier 4ON.png') }}" alt="Play/Pause">'; // Change to play symbol
+                    player.pause();
+                }
+            }
+
+            // Placeholder functions for next and previous track
+            function nextTrack() {
+                console.log("Next track");
+                // Logic to switch to the next track
+            }
+
+            function previousTrack() {
+                console.log("Previous track");
+                // Logic to switch to the previous track
+            }
         });
-
-        // Placeholder functions for next and previous track
-        function nextTrack() {
-            // Logic to switch to the next track
-            console.log("Next track");
-        }
-
-        function previousTrack() {
-            // Logic to switch to the previous track
-            console.log("Previous track");
-        }
     </script>
 
     </body>

@@ -151,35 +151,35 @@
                 ▪ On a scale of 1 to 10, how confident are you in your current identity and reality?
             </label>
             <div class="flex justify-center flex-col text-center">
-                <label class="inline-flex items-center">
-                    <span class="ml-2">1 (Not confident at all)</span>
+                <label class="items-center">
+                    <span class="ml-2" onclick="selectOption(this, '1 (Not confident at all)')">1 (Not confident at all)</span>
                 </label>
-                <label class="inline-flex items-center">
-                    <span class="ml-2">2</span>
+                <label class=" items-center">
+                    <span class="ml-2" onclick="selectOption(this, '2')" >2</span>
                 </label>
-                <label class="inline-flex items-center">
-                    <span class="ml-2">3</span>
+                <label class=" items-center">
+                    <span class="ml-2" onclick="selectOption(this, '3')">3</span>
                 </label>
-                <label class="inline-flex items-center">
-                    <span class="ml-2">4</span>
+                <label class=" items-center">
+                    <span class="ml-2" onclick="selectOption(this, '4')">4</span>
                 </label>
-                <label class="inline-flex items-center">
-                    <span class="ml-2">5</span>
+                <label class=" items-center">
+                    <span class="ml-2" onclick="selectOption(this, '5')">5</span>
                 </label>
-                <label class="inline-flex items-center">
-                    <span class="ml-2">6</span>
+                <label class=" items-center">
+                    <span class="ml-2" onclick="selectOption(this, '6')">6</span>
                 </label>
-                <label class="inline-flex items-center">
-                    <span class="ml-2">7</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <span class="ml-2">8</span>
+                <label class=" items-center">
+                    <span class="ml-2" onclick="selectOption(this, '7')">7</span>
                 </label>
                 <label class="items-center">
-                    <span class="ml-2">9</span>
+                    <span class="ml-2" onclick="selectOption(this, '8')">8</span>
                 </label>
-                <label class="inline-flex items-center">
-                    <span class="ml-2">10 (Completely confident)</span>
+                <label class="items-center">
+                    <span class="ml-2" onclick="selectOption(this, '9')">9</span>
+                </label>
+                <label class=" items-center">
+                    <span class="ml-2" onclick="selectOption(this, '10 (Completely confident)')">10 (Completely confident)</span>
                 </label>
             </div>
         </div>
@@ -187,7 +187,7 @@
         <div class="text-center text-4xl font-bold">
             <p>If you have a majority of yes please seek help immediatly and send a mail to</p>
 
-            <p class="text-red-500">fataorgana.institute@gmail.com</p>
+            <a href="mailto:fataorgana.institute@gmail.com"><p class="text-red-500">fataorgana.institute@gmail.com</p></a>
         </div>
 
         <div class="text-center mt-60">

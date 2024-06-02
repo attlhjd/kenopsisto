@@ -73,6 +73,7 @@
             img.src = imagePath;
             img.style.width = '100%';
             img.style.height = 'auto';
+            img.classList.add('cursor-pointer');
 
             img.onclick = function() {
                 popup.remove();

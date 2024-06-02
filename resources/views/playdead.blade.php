@@ -22,7 +22,7 @@
             @endforeach
 
         </div>
-        <div class="grid grid-cols-1 place-items-center">
+        <div class="grid grid-cols-1 place-items-center absolute bottom-[5%] left-[47%]">
             <div class="text-8xl">
                 <a class="carousel-control left text-white" href="#myCarousel" data-slide="prev">&lsaquo;</a>
                 <a class="carousel-control right text-white" href="#myCarousel" data-slide="next">&rsaquo;</a>

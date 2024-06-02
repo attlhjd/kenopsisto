@@ -19,7 +19,7 @@
         </div>
         <button id="submitButton" class="bg-white text-black rounded px-2 font-semibold button-disabled">Submit</button>
     </div>
-
+    <img id="tete" class="absolute top-10 right-10" src="{{asset('images/location.png')}}" alt="">
     <script>
         function enableSubmit() {
             const submitButton = document.getElementById('submitButton');
@@ -29,7 +29,11 @@
                 submitButton.classList.add('button-disabled');
             }
         }
-
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.getElementById('tete').classList.add('hidden');
+            }, 2000);
+        });
         // Initially disable submit button until a choice is made
         document.getElementById('submitButton').addEventListener('click', function(event) {
             if (this.classList.contains('button-disabled')) {

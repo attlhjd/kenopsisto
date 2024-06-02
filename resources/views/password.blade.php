@@ -47,15 +47,17 @@
         <p>FATAORGANA-<span>LOGIN</span></p>
         <input type="text" class="px-2">
         <p class="placeholder">--------</p>
-        <a style="color: #000;leading-trim: both;text-edge: cap;font-size: 12px;font-style: normal;font-weight: 500;line-height: normal;">SUBMIT_</a>
+        <a id="bob" class="cursor-pointer" style="color: #000;leading-trim: both;text-edge: cap;font-size: 12px;font-style: normal;font-weight: 500;line-height: normal;">SUBMIT_</a>
         <p>/////</p>
         <div class="h_line"></div>
         <p>CURR_NETWORK : UNKNOWN</p>
     </div>
     <script>
-        document.querySelector('input').addEventListener('input', function(e) {
-            if (e.target.value === '21122012') {
+
+        document.getElementById('bob').addEventListener('click', function() {
+            if(document.querySelector('input').value === '21122012') {
                 window.location.href = '/employee';
+
             }
         });
     </script>

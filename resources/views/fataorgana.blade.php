@@ -27,6 +27,8 @@
                     currentLine++; // Move to the next line in the array
                     setTimeout(typeWriter, pauseBetweenLines); // Wait before starting the next line
                 }
+            } else {
+                window.location.href = '/institute';
             }
         }
 

@@ -26,7 +26,7 @@
             <a href="">
             <img src="{{asset('exulansist/file_win_shortcut-2 copie.png')}}"  style="width: 111px;height: 111px;flex-shrink: 0;" alt="file win shortcut">
             </a>
-            <a href="">
+            <a href="{{route('doc_txt')}}">
             <img src="{{asset('exulansist/notepad_file-2 copie.png')}}" style="width: 111px;height: 111px;flex-shrink: 0;" alt="notepad file">
             </a>
             <a href="{{ route('audio') }}">

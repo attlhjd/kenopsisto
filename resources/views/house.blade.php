@@ -17,7 +17,7 @@
 height: 435px;">
     </div>
     <div class="footer-text font-fortyseven-micro">
-        >enter
+        <a href="{{ route('security') }}">>enter</a>
     </div>
     </body>
 </x-base-layout>

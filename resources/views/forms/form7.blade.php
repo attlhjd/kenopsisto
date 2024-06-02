@@ -5,11 +5,18 @@
         input[type='radio'] {
             accent-color: red;
         }
-        option, select {
+         select {
             color: #000;
             font-size: 24px;
             font-style: normal;
-            font-weight: 700;
+            font-weight: 500;
+            line-height: normal;
+        }
+        option {
+            color: #000;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
             line-height: normal;
         }
     </style>
