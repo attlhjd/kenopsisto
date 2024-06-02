@@ -49,5 +49,10 @@
             Will it echo into eternity? <br>
         </span>
     </div>
+    <script>
+        setTimeout(() => {
+            window.location.href = '/heaven2';
+        }, 130000);
+    </script>
     </body>
 </x-base-layout>
