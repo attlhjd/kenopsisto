@@ -27,6 +27,9 @@ services:
       - npm_net
     restart: unless-stopped
 
+networks:
+  npm_net:
+
 volumes:
   dbdata:
 
