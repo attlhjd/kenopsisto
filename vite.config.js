@@ -1,29 +1,17 @@
-import laravel from 'laravel-vite-plugin'
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
 
-var config = {
-    plugins: [
-        laravel({
-            input: [
-                'resources/css/app.css',
-                'resources/js/app.js',
-            ],
-        }),
-    ],
-    build: {
-        assetsDir: '',
-    }
-}
-
-export default defineConfig(({command, mode, ssrBuild}) => {
-    if (command === 'serve') {
-        config.publicDir = 'public';
-        config.build = {
-            assetsDir: '',
-            copyPublicDir: false,
-            emptyOutDir: true,
-        };
-    }
-
-    return config;
+export default defineConfig({
+  plugins: [
+    laravel({
+      input: ['resources/css/app.css', 'resources/js/app.js'],
+      refresh: true,
+    }),
+  ],
+  server: process.env.NODE_ENV === 'development' ? {
+    host: '0.0.0.0',
+    port: 5173,
+    cors: true,
+  } : {},
 });
+
